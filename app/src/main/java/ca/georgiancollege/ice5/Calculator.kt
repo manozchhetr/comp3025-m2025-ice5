@@ -1,54 +1,22 @@
 package ca.georgiancollege.ice5
 
-import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import ca.georgiancollege.ice5.databinding.ActivityMainBinding
-import kotlin.math.log
 
-class MainActivity : AppCompatActivity()
+class Calculator(private var binding: ActivityMainBinding)
 {
-    private lateinit var binding: ActivityMainBinding
-
     // Lists of buttons for easy access
     private lateinit var numberButtons: List<Button>
     private lateinit var operatorButtons: List<Button>
     private lateinit var modifierButtons: List<Button>
 
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
-        setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-            val Calculator = Calculator(binding)
-       /* initializeButtonLists(binding)
+    init {
+        initializeButtonLists(binding)
         configureNumberInput()
         configureModifierButtons()
-
-        */
-
-        val person = Person(name = "Manoj", age = 100f)
-        Log.i("onCreate", person.toString())
-        person.sayHello()
     }
 
-    /**
-     * Initializes the lists of buttons for numbers, operators, and modifiers.
-     * This allows for easy access to all buttons in the calculator layout.
-     *
-     * @param binding [ActivityMainBinding] The binding object for the main activity layout.
-     */
-    /*
+
     private fun initializeButtonLists(binding: ActivityMainBinding)
     {
         // Initialize number buttons
@@ -59,7 +27,7 @@ class MainActivity : AppCompatActivity()
             binding.nineButton, binding.decimalButton
         )
 
-         // Initialize operator buttons
+        // Initialize operator buttons
         operatorButtons = listOf(
             binding.plusButton, binding.minusButton,
             binding.multiplyButton, binding.divideButton, binding.percentButton
@@ -70,11 +38,6 @@ class MainActivity : AppCompatActivity()
             binding.clearButton, binding.deleteButton
         )
     }
-
-    /**
-     * Configures the number input buttons to handle clicks and update the result EditText.
-     * It prevents multiple decimal points in the current number and handles leading zeros.
-     */
     private fun configureNumberInput()
     {
         numberButtons.forEach { button ->
@@ -152,5 +115,4 @@ class MainActivity : AppCompatActivity()
             }
         }
     }
-     */
 }
