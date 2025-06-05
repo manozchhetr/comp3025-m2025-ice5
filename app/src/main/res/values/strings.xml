@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ICE5</string>
+    <string name="result_default">0</string>
+    <string name="percent_button_text">\u0025</string>
+    <string name="clear_button_text">\u0043</string>
+    <string name="delete_button_text">\uf55a</string>
+    <string name="divide_button_text">\uf529</string>
+    <string name="seven_button_text">\u0037</string>
+    <string name="eight_button_text">\u0038</string>
+    <string name="nine_button_text">\u0039</string>
+    <string name="multiply_button_text">\uf00d</string>
+    <string name="four_button_text">\u0034</string>
+    <string name="five_button_text">\u0035</string>
+    <string name="six_button_text">\u0036</string>
+    <string name="minus_button_text">\uf068</string>
+    <string name="one_button_text">\u0031</string>
+    <string name="two_button_text">\u0032</string>
+    <string name="three_button_text">\u0033</string>
+    <string name="plus_button_text">\u002b</string>
+    <string name="plus_minus_button_text">\ue43c</string>
+    <string name="zero_button_text">\u0030</string>
+    <string name="decimal_button_text">.</string>
+    <string name="equals_button_text">\u003d</string>
+    <string name="spinner_icon">\uf110</string>
+</resources>

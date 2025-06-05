@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ICE5" parent="Base.Theme.ICE5">
+        <!-- Make splash screen look blank -->
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/blank</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">
+            @android:color/transparent
+        </item>
+        <item name="android:windowSplashScreenBackground">@android:color/white</item>
+    </style>
+</resources>

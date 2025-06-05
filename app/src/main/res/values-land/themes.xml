@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Base.Theme.ICE5" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here -->
+    </style>
+
+    <!-- Public app theme -->
+    <style name="Theme.ICE5" parent="Base.Theme.ICE5" />
+    <style name="CalculatorButtonStyle" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_layout_height</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/fa_solid_900</item>
+        <item name="android:padding">@dimen/zero</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
+    </style>
+
+    <style name="OperatorButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/burnt_orange</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="NumberButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/light_grey</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ModifierButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/bright_orange</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

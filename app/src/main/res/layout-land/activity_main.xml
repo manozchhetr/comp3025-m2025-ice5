@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_dynamic_neutral30"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/Row6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/result_row_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <EditText
+            android:id="@+id/resultEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:ems="12"
+            android:focusable="false"
+            android:gravity="end"
+            android:importantForAutofill="no"
+            android:inputType="none"
+            android:padding="@dimen/result_edit_text_padding"
+            android:paddingStart="@dimen/standard_padding"
+            android:paddingEnd="@dimen/standard_padding"
+            android:text="@string/result_default"
+            android:textColor="@color/white"
+            android:textSize="@dimen/result_text_size"
+            tools:ignore="LabelFor,VisualLintTextFieldSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Row5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/Row4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Row6">
+
+        <Button
+            android:id="@+id/percentButton"
+            style="@style/OperatorButtonStyle"
+            android:tag="percent"
+            android:text="@string/percent_button_text"
+            tools:ignore="ButtonStyleLandscape,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/clearButton"
+            style="@style/ModifierButtonStyle"
+            android:tag="clear"
+            android:text="@string/clear_button_text"
+            tools:ignore="ButtonStyleLandscape,TextContrastCheck,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            style="@style/ModifierButtonStyle"
+            android:tag="backspace"
+            android:text="@string/delete_button_text"
+            tools:ignore="ButtonStyleLandscape, TextContrastCheck,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/divideButton"
+            style="@style/OperatorButtonStyle"
+            android:tag="divide"
+            android:text="@string/divide_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Row4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/Row3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Row5">
+
+        <Button
+            android:id="@+id/sevenButton"
+            style="@style/NumberButtonStyle"
+            android:tag="7"
+            android:text="@string/seven_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/eightButton"
+            style="@style/NumberButtonStyle"
+            android:tag="8"
+            android:text="@string/eight_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/nineButton"
+            style="@style/NumberButtonStyle"
+            android:tag="9"
+            android:text="@string/nine_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/multiplyButton"
+            style="@style/OperatorButtonStyle"
+            android:tag="multiply"
+            android:text="@string/multiply_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Row3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/Row2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Row4">
+
+        <Button
+            android:id="@+id/fourButton"
+            style="@style/NumberButtonStyle"
+            android:tag="4"
+            android:text="@string/four_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/fiveButton"
+            style="@style/NumberButtonStyle"
+            android:tag="5"
+            android:text="@string/five_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/sixButton"
+            style="@style/NumberButtonStyle"
+            android:tag="6"
+            android:text="@string/six_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/minusButton"
+            style="@style/OperatorButtonStyle"
+            android:tag="subtract"
+            android:text="@string/minus_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Row2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/Row1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Row3">
+
+        <Button
+            android:id="@+id/oneButton"
+            style="@style/NumberButtonStyle"
+            android:tag="1"
+            android:text="@string/one_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/twoButton"
+            style="@style/NumberButtonStyle"
+            android:tag="2"
+            android:text="@string/two_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/threeButton"
+            style="@style/NumberButtonStyle"
+            android:tag="3"
+            android:text="@string/three_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/plusButton"
+            style="@style/OperatorButtonStyle"
+            android:tag="add"
+            android:text="@string/plus_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Row1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Row2">
+
+        <Button
+            android:id="@+id/plusMinusButton"
+            style="@style/ModifierButtonStyle"
+            android:tag="plus_equals"
+            android:text="@string/plus_minus_button_text"
+            tools:ignore="ButtonStyleLandscape,TextContrastCheck,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/zeroButton"
+            style="@style/NumberButtonStyle"
+            android:tag="0"
+            android:text="@string/zero_button_text"
+            tools:ignore="ButtonStyleLandscape,DuplicateSpeakableTextCheck,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/decimalButton"
+            style="@style/NumberButtonStyle"
+            android:tag="."
+            android:text="@string/decimal_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/equalsButton"
+            style="@style/OperatorButtonStyle"
+            android:tag="equals"
+            android:text="@string/equals_button_text"
+            tools:ignore="ButtonStyleLandscape,TextSizeCheck" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
