@@ -17,11 +17,17 @@ class Calculator(private var binding: ActivityMainBinding)
 
     init {
         initializeButtonLists(binding)
+
+        // ✅ Correct modifierButtons initialization including equalsButton
+        modifierButtons = listOf(
+            binding.plusMinusButton,
+            binding.clearButton, binding.deleteButton,
+            binding.equalsButton
+        )
+
         configureNumberInput()
         configureModifierButtons()
-
     }
-
 
     private fun initializeButtonLists(binding: ActivityMainBinding)
     {
@@ -39,11 +45,9 @@ class Calculator(private var binding: ActivityMainBinding)
             binding.multiplyButton, binding.divideButton, binding.percentButton
         )
 
-        modifierButtons = listOf(
-            binding.plusMinusButton,
-            binding.clearButton, binding.deleteButton
-        )
+        // ❌ Removed the modifierButtons assignment here to prevent overwrite
     }
+
     private fun configureNumberInput()
     {
         numberButtons.forEach { button ->
@@ -77,6 +81,7 @@ class Calculator(private var binding: ActivityMainBinding)
                 when (button)
                 {
                     binding.clearButton -> binding.resultEditText.setText("0")
+
                     binding.deleteButton ->
                     {
                         val currentText = binding.resultEditText.text.toString()
@@ -95,6 +100,7 @@ class Calculator(private var binding: ActivityMainBinding)
                             }
                         }
                     }
+
                     binding.plusMinusButton ->
                     {
                         val currentText = binding.resultEditText.text.toString()
@@ -116,6 +122,14 @@ class Calculator(private var binding: ActivityMainBinding)
                                 binding.resultEditText.setText(prefixedCurrentText)
                             }
                         }
+                    }
+
+
+                    binding.equalsButton ->
+                    {
+                        // Placeholder: handle calculation
+                        // Example:
+                        // performCalculation()
                     }
                 }
             }
