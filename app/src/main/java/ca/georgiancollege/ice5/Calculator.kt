@@ -18,7 +18,6 @@ class Calculator(private var binding: ActivityMainBinding)
     init {
         initializeButtonLists(binding)
 
-
         modifierButtons = listOf(
             binding.plusMinusButton,
             binding.clearButton, binding.deleteButton,
@@ -45,8 +44,6 @@ class Calculator(private var binding: ActivityMainBinding)
             binding.plusButton, binding.minusButton,
             binding.multiplyButton, binding.divideButton, binding.percentButton
         )
-
-
     }
 
     private fun configureNumberInput()
@@ -56,19 +53,13 @@ class Calculator(private var binding: ActivityMainBinding)
                 val input = button.text.toString()
                 val currentResultText = binding.resultEditText.text.toString()
 
-                // Prevent multiple decimal points in the current number
-                if (input == "." && currentResultText.contains("."))
-                {
-                    return@setOnClickListener
-                }
+                // Prevent multiple decimal points
+                if (input == "." && currentResultText.contains(".")) return@setOnClickListener
 
-                // Replace 0 if input is not "."; otherwise, append
-                if (currentResultText == "0" && input != ".")
-                {
+                // Replace 0 or append input
+                if (currentResultText == "0" && input != ".") {
                     binding.resultEditText.setText(input)
-                }
-                else
-                {
+                } else {
                     binding.resultEditText.append(input)
                 }
             }
@@ -79,13 +70,13 @@ class Calculator(private var binding: ActivityMainBinding)
     {
         modifierButtons.forEach { button ->
             button.setOnClickListener {
-                when (button)
-                {
+                when (button) {
                     binding.clearButton -> {
                         binding.resultEditText.setText("0")
                         currentOperand = null
                         currentOperator = null
                         operatorSelected = false
+                        setButtonsEnabledAfterEquals(true) // ✅ Re-enable buttons
                     }
 
                     binding.deleteButton -> {
@@ -111,24 +102,31 @@ class Calculator(private var binding: ActivityMainBinding)
                     }
 
                     binding.equalsButton -> {
-                        val secondOperand = binding.resultEditText.text.toString().toFloatOrNull()
+                        if (currentOperand != null && currentOperator != null) {
+                            val secondOperandText = binding.resultEditText.text.toString()
+                            val secondOperand = secondOperandText.toFloatOrNull()
 
-                        if (currentOperand != null && secondOperand != null && currentOperator != null) {
-                            val result = when (currentOperator) {
-                                "+" -> currentOperand!! + secondOperand
-                                "-" -> currentOperand!! - secondOperand
-                                "*" -> currentOperand!! * secondOperand
-                                "/" -> if (secondOperand != 0f) currentOperand!! / secondOperand else {
-                                    binding.resultEditText.setText("Error")
-                                    return@setOnClickListener
+                            if (secondOperand != null) {
+                                val result = when (currentOperator) {
+                                    "+" -> currentOperand!! + secondOperand
+                                    "-" -> currentOperand!! - secondOperand
+                                    "*" -> currentOperand!! * secondOperand
+                                    "/" -> if (secondOperand != 0f) currentOperand!! / secondOperand else null
+                                    else -> null
                                 }
-                                else -> return@setOnClickListener
+
+                                if (result != null) {
+                                    binding.resultEditText.setText(result.toString())
+                                } else {
+                                    binding.resultEditText.setText("Error")
+                                }
                             }
 
-                            binding.resultEditText.setText(result.toString())
                             currentOperand = null
                             currentOperator = null
                             operatorSelected = false
+
+                            setButtonsEnabledAfterEquals(false) // ✅ Disable all except Clear
                         }
                     }
                 }
@@ -158,6 +156,16 @@ class Calculator(private var binding: ActivityMainBinding)
                     operatorSelected = true
                     binding.resultEditText.setText("0")
                 }
+            }
+        }
+    }
+
+    private fun setButtonsEnabledAfterEquals(enabled: Boolean) {
+        numberButtons.forEach { it.isEnabled = enabled }
+        operatorButtons.forEach { it.isEnabled = enabled }
+        modifierButtons.forEach {
+            if (it != binding.clearButton) {
+                it.isEnabled = enabled
             }
         }
     }
