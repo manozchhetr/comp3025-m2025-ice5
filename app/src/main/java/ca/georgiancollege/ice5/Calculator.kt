@@ -10,10 +10,16 @@ class Calculator(private var binding: ActivityMainBinding)
     private lateinit var operatorButtons: List<Button>
     private lateinit var modifierButtons: List<Button>
 
+    // Properties for calculation logic
+    private var currentOperand: Float? = null
+    private var currentOperator: String? = null
+    private var operatorSelected = false
+
     init {
         initializeButtonLists(binding)
         configureNumberInput()
         configureModifierButtons()
+
     }
 
 
